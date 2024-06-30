@@ -38,8 +38,8 @@ const Home = () => {
             <PostItem key={post.id} post={post} />
           ))}
         </List>
-        <Link href="/posts/new" legacyBehavior>
-          <Button variant="contained" color="primary" component="a">新しい投稿</Button>
+        <Link href="/posts/new" passHref>
+          <Button variant="contained" color="primary">新しい投稿</Button>
         </Link>
       </Container>
     </Box>
