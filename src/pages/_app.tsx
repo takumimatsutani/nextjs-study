@@ -1,11 +1,12 @@
 import { AppProps } from 'next/app';
-import Layout from '../components/Layout';
 import '../styles/global.css';
-import { ThemeProviderWrapper } from '../ThemeProviderWrapper';
-import { useEffect } from 'react';
-import { Provider, useDispatch } from 'react-redux';
+import { Provider } from 'react-redux';
 import store from '../store';
-import { setUserToken } from '../store/userActions';
+import { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
+import { setUserToken } from '../store/userReducer';
+import Layout from '@/components/Layout';
+import { ThemeProviderWrapper } from '@/ThemeProviderWrapper';
 
 const MyApp = ({ Component, pageProps }: AppProps) => {
   return (

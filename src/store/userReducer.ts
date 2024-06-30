@@ -1,25 +1,25 @@
-import { SET_USER_TOKEN } from './userActions';
+import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface UserState {
   token: string | null;
-}
-
-interface UserAction {
-  type: string;
-  payload: string;
 }
 
 const initialState: UserState = {
   token: null,
 };
 
-const userReducer = (state = initialState, action: UserAction): UserState => {
-  switch (action.type) {
-    case SET_USER_TOKEN:
-      return { ...state, token: action.payload };
-    default:
-      return state;
-  }
-};
+const userSlice = createSlice({
+  name: 'user',
+  initialState,
+  reducers: {
+    setUserToken(state, action: PayloadAction<string>) {
+      state.token = action.payload;
+    },
+    logoutUser(state) {
+      state.token = null;
+    },
+  },
+});
 
-export default userReducer;
+export const { setUserToken, logoutUser } = userSlice.actions;
+export default userSlice.reducer;

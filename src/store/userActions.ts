@@ -5,7 +5,9 @@ interface SetUserTokenAction {
   payload: string;
 }
 
-export const setUserToken = (token: string): SetUserTokenAction => ({
+export type UserActionTypes = SetUserTokenAction;
+
+export const setUserToken = (token: string): UserActionTypes => ({
   type: SET_USER_TOKEN,
   payload: token,
 });

@@ -8,14 +8,7 @@ import Link from 'next/link';
 import styles from './index.module.css';  // CSSモジュールをインポート
 
 const Home = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
   const { toggleTheme } = useThemeContext();
-
-  useEffect(() => {
-    axios.get<Post[]>('/api/posts').then((response) => {
-      setPosts(response.data);
-    });
-  }, []);
 
   return (
     <Box
@@ -34,11 +27,8 @@ const Home = () => {
           テーマを切り替える
         </Button>
         <List>
-          {posts.map((post) => (
-            <PostItem key={post.id} post={post} />
-          ))}
         </List>
-        <Link href="/posts/new" legacyBehavior>
+        <Link href="/posts/new" passHref>
           <Button variant="contained" color="primary" component="a">新しい投稿</Button>
         </Link>
       </Container>

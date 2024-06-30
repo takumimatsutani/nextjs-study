@@ -1,6 +1,5 @@
-import React from 'react';
-import { ListItem, Typography } from '@mui/material';
 import Link from 'next/link';
+import { ListItem, Typography } from '@mui/material';
 import { Post } from '../types';
 import styles from './PostItem.module.css';
 
@@ -9,8 +8,8 @@ interface PostProps {
 }
 
 const PostItem: React.FC<PostProps> = ({ post }) => (
-  <Link href={`/posts/${post.id}`} passHref>
-    <ListItem component="a" className={styles.listItem}>
+  <Link href={`/posts/${post.id}`} passHref legacyBehavior>
+    <ListItem className={styles.listItem}>
       <Typography variant="body1">{post.title}</Typography>
     </ListItem>
   </Link>
